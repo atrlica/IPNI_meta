@@ -1,0 +1,20 @@
+"","Study","Fert","Inhibitor","mean.comp","sd.comp","n.comp"
+"1","Ebelhar 07","UAN","none",10.1808333333333,1.00788640232915,240
+"2","Ebelhar 07","UAN","NBPT",10.47775,0.93052270257098,160
+"3","Ebelhar 07","UAN","NBPT+DCD",10.40525,1.15121457600223,160
+"4","Ebelhar 07","UAN","thiosulfate",10.35025,1.00610014412085,160
+"5","Halvorson 10 jeq","UAN","none",11.865,1.32008560328488,6
+"6","Halvorson 10 jeq","UAN","NBPT+DCD",12.6005,1.26937011938993,6
+"7","Halvorson 11","UAN","none",14.805,0.822139890772854,6
+"8","Halvorson 11","UAN","S.R",14.63,0.218500572081631,6
+"9","Halvorson 11","UAN","NBPT+DCD",14.275,1.20806560252331,6
+"10","Halvorson 12","UAN","none",14.81,1.6517525541073,6
+"11","Halvorson 12","UAN","NBPT+DCD",14.66,1.34710986931282,6
+"12","Hatfield/Parkin 14","UAN","none",9.34733333333333,1.03679932163044,60
+"13","Hatfield/Parkin 14","UAN","NBPT",9.204875,1.77614470131237,80
+"14","Randall 12 Esp","UAN","none",12.2,0.607453701939498,8
+"15","Randall 12 Esp","UAN","nitrapyrin",12.17,0.53,4
+"16","Vetsch/Randall  11","UAN","none",8.78,0.77,3
+"17","Vetsch/Randall  11","UAN","nitrapyrin",8.47,0.89,3
+"18","Vetsch 12","UAN","none",11.41,0.605084517011692,33
+"19","Vetsch 12","UAN","nitrapyrin",11.5463636363636,0.778273146722339,33

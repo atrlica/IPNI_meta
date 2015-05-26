@@ -1,0 +1,33 @@
+"","Study","Fert","Inhibitor","mean.comp","sd.comp","n.comp"
+"1","ParkinHatfield 10","AA","none",13.63,0.572712842531054,12
+"2","ParkinHatfield 10","AA","nitrapyrin",14.485,0.537121960079831,12
+"3","Randall 05","AA","nitrapyrin",9.87,0.54,4
+"4","Randall 05","AA","none",9.95,0.88,4
+"5","Randall 06 Esp","AA","none",13,0.51,4
+"6","Randall 06 Esp","AA","nitrapyrin",13.8,0.97,4
+"7","Randall 06 fsp","AA","nitrapyrin",13.48,1.75,4
+"8","Randall 06 fsp","AA","none",13.64,0.97,4
+"9","Randall 07 Esp","AA","none",11.23,0.77,4
+"10","Randall 07 Esp","AA","nitrapyrin",11.67,1.32,4
+"11","Randall 07 fsp","AA","none",10.82,0.37,8
+"12","Randall 07 fsp","AA","nitrapyrin",10.8,0.500649578048359,8
+"13","Randall 08 Esp","AA","none",11.16,1.28,4
+"14","Randall 08 Esp","AA","nitrapyrin",10.66,1.31,4
+"15","Randall 08 fsp","AA","none",12.06,0.705868259663232,8
+"16","Randall 08 fsp","AA","nitrapyrin",12.47,0.871320836431679,8
+"17","Randall 09 Esp","AA","none",11.35,0.67,4
+"18","Randall 09 Esp","AA","nitrapyrin",11.23,0.98,4
+"19","Randall 09 fsp","AA","none",13.685,0.468241390737726,8
+"20","Randall 09 fsp","AA","nitrapyrin",13.26,0.439317652729776,8
+"21","Randall 10 Esp","AA","none",10.41,0.41,4
+"22","Randall 10 Esp","AA","nitrapyrin",10.6,0.11,4
+"23","Randall 10 fsp","AA","none",13.42,0.615507920338967,8
+"24","Randall 10 fsp","AA","nitrapyrin",13.485,0.414366987102013,8
+"25","Randall 11 Esp","AA","none",12.42,0.5,4
+"26","Randall 11 Esp","AA","nitrapyrin",12.61,0.31,4
+"27","Randall 11 fsp","AA","none",11.855,0.720069441095788,8
+"28","Randall 11 fsp","AA","nitrapyrin",11.92,0.272121296483756,8
+"29","Randall 12 Esp","AA","none",12.54,0.56,4
+"30","Randall 12 Esp","AA","nitrapyrin",12.17,0.51,4
+"31","Randall 12 fsp","AA","none",11.485,3.06960909563417,8
+"32","Randall 12 fsp","AA","nitrapyrin",11.505,2.35623640579633,8
