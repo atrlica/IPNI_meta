@@ -2,34 +2,7 @@ setwd("/Users/andrewtrlica/Desktop/IPNI meta/")
 
 
 library(metafor)
-AA.dat <- read.csv(file="lumped/AA.effect.sizes.mean-diff.csv")
-AA.dat$Inhibitor <- as.character(AA.dat$Inhibitor)
-AA.dat$Name <- paste(AA.dat$Study, AA.dat$Inhibitor) ## mark each study effect size with its Inhibitor
-
-### this loop comes up with a scaling factor for the squares to apply within each Inhibitor group
-inhib <- unique(AA.dat$Inhibitor)
-shit <- data.frame(NULL)
-for(j in 1:length(inhib)){
-  gunk <- AA.dat[which(AA.dat$Inhibitor==inhib[j]),]
-  total <- sum(gunk$Inhibitor==inhib[j])
-  skim <- gunk[which(gunk$Inhibitor==inhib[j]),8]/sum(gunk[which(gunk$Inhibitor==inhib[j]),8])
-  #place <- rank(skim)
-  #piece <- 1.5/(length(place)-1)
-  #rwt <- 2-((place-1)*piece)
-  gunk$rewt <- 1+(2*skim)
-  shit <- rbind(shit, gunk)
-}
-
-### do the rma meta analysis to get the summary effect polygon and basic frame
-AA.shit <- rma(yi = shit$mean.diff, vi = shit$diff.var, 
-               measure = "GEN", method="DL",
-               slab = shit$Name)
-## expand margins 
-par(mar=c(4,4,1,2), font=1)
-
-##### the forest plot needs to be specified which rows for placing the effect sizes; 
-##### you create gaps in the rows to provide room for titles and summary polygons;
-##### the rows count up from the bottom of the figure (presume the all-study summary is on row 1)
+AA.dat <- read.csv(file="lumped/AA.e of the figure (presume the all-study summary is on row 1)
 spc <- 3.5
 br1 <- 3 #NBPT needs 2
 br2 <- spc+3+br1 # NBPT+DCD, needs 4
@@ -68,7 +41,7 @@ res.nbdc <- rma(yi = mean.diff, vi = diff.var,
                 measure = "GEN", method="DL",
                 data=shit, 
                 subset=(Inhibitor=="NBPT+DCD"))
-res.nitr <- rma(yi = mean.diff, vi = diff.var, 
+res.nitr <- rma(yi = mean.diff, vi = var, 
                 measure = "GEN", method="DL",
                 data=shit, 
                 subset=(Inhibitor=="nitrapyrin"))
@@ -110,7 +83,7 @@ res <- rma(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, measure="RR",
 ### to specify exactly in which rows the outcomes will be plotted)
 forest(res, xlim=c(-16, 6), at=log(c(.05, .25, 1, 4)), atransf=exp,
        ilab=cbind(dat.bcg$tpos, dat.bcg$tneg, dat.bcg$cpos, dat.bcg$cneg),
-       ilab.xpos=c(-9.5,-8,-6,-4.5), cex=.75, ylim=c(-1, 27),
+       ilab.xpos=c(-9.5,-8,-6,booo-4.5), cex=.75, ylim=c(-1, 27),
        order=order(dat.bcg$alloc), rows=c(3:4,9:15,20:23),
        xlab="Relative Risk", mlab="RE Model for All Studies", psize=1)
 
@@ -143,7 +116,7 @@ res.r <- rma(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, measure="RR",
 res.a <- rma(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, measure="RR",
              subset=(alloc=="alternate"), method="REML")
 
-### add summary polygons for the three subgroups
+### add summary polygons or the three subgroups
 addpoly(res.s, row=18.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
 addpoly(res.r, row= 7.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
 addpoly(res.a, row= 1.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
