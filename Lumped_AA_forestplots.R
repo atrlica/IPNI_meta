@@ -1,5 +1,5 @@
 setwd("/Users/andrewtrlica/Desktop/IPNI meta/")
-
+#hi!
 
 library(metafor)
 AA.dat <- read.csv(file="lumped/AA.effect.sizes.mean-diff.csv")
