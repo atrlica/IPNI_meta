@@ -1,4 +1,4 @@
-setwd("/Users/andrewtrlica/Desktop/IPNI meta/parsed")
+setwd("/Users/andrewtrlica/Desktop/IPNI_meta/parsed")
 
 data <- read.csv("../SAS data_5-5-2015-1pm.csv", header=TRUE) ### read in and clean up database
 ded <- which(data$yld.sd==".")
