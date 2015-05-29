@@ -87,7 +87,7 @@ res.nitr <- rma(yi = mean.diff, vi = diff.var,
 addpoly(res.nbdc, row=br2-4, cex=.75, mlab="RE Model for Subgroup")
 addpoly(res.nitr, row=br5-3, cex=.75, mlab="RE Model for Subgroup")
 addpoly(res.nbpt, row=br1-2, cex=.75, mlab="RE Model for Subgroup")
-
+?addpoly
 
 
 
