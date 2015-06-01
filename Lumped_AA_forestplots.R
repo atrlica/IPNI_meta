@@ -1,4 +1,4 @@
-setwd("/Users/andrewtrlica/Desktop/IPNI meta/")
+setwd("/Users/andrewtrlica/Desktop/IPNI_meta/")
 #hi!
 
 library(metafor)
@@ -24,12 +24,13 @@ for(j in 1:length(inhib)){
 AA.shit <- rma(yi = shit$mean.diff, vi = shit$diff.var, 
                 measure = "GEN", method="DL",
                 slab = shit$Name)
-## expand margins 
-par(mar=c(4,4,1,2), font=1)
+
 
 ##### the forest plot needs to be specified which rows for placing the effect sizes; 
 ##### you create gaps in the rows to provide room for titles and summary polygons;
 ##### the rows count up from the bottom of the figure (presume the all-study summary is on row 1)
+## expand margins 
+
 spc <- 3.5
 br1 <- 3 #NBPT needs 2
 br2 <- spc+3+br1 # NBPT+DCD, needs 4
@@ -37,10 +38,14 @@ br3 <- spc+br2 # thiosulfate, needs 1
 br4 <- spc+br3 # S.R., needs 1
 br5 <- spc+2+br4 # Nitrap, needs 3
 
-forest(AA.shit, xlim=c(-8, 8), cex=.75, ylim=c(-1, 20),
+
+par(mar=c(4,4,4,4), font=1)
+forest(AA.shit, xlim=c(-8, 8), cex=.75, ylim=c(-1, 19),
        xlab="Mean difference", mlab="RE Model for All Studies", 
        #=c((br1-1):br1,(br2-3):br2,br3,br4,(br5-2):br5),
-       psize=shit$rewt)
+       psize=shit$rewtm)
+par(font=2)
+text(0, 18, "AA")
 ### set font expansion factor (as in forest() above) and use bold italic
 ### font and save original settings in object 'op'
 #mtext("AA")

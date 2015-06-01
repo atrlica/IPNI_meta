@@ -1,4 +1,4 @@
-setwd("/Users/andrewtrlica/Desktop/IPNI meta/")
+setwd("/Users/andrewtrlica/Desktop/IPNI_meta/")
 
 
 library(metafor)
@@ -19,14 +19,11 @@ for(j in 1:length(inhib)){
   gunk$rewt <- .8+(1*skim)
   shit <- rbind(shit, gunk)
 }
-
+shit
 ### do the rma meta analysis to get the summary effect polygon and basic frame
 UAN.shit <- rma(yi = shit$mean.diff, vi = shit$diff.var, 
                  measure = "GEN", method="DL",
                  slab = shit$Name)
-## expand margins 
-par(mar=c(4,4,1,2))
-
 ##### the forest plot needs to be specified which rows for placing the effect sizes; 
 ##### you create gaps in the rows to provide room for titles and summary polygons;
 ##### the rows count up from the bottom of the figure (presume the all-study summary is on row 1)
@@ -37,21 +34,25 @@ br3 <- spc+br2 # thiosulfate, needs 1
 br4 <- spc+br3 # S.R., needs 1
 br5 <- spc+2+br4 # Nitrap, needs 3
 
-forest(UAN.shit, xlim=c(-8, 8), cex=.75, ylim=c(-1, 27),
+
+par(mar=c(4,4,1,2),  font=1)
+forest(UAN.shit, xlim=c(-8, 8), cex=.75, ylim=c(-1, 26),
        xlab="Mean difference", mlab="RE Model for All Studies", 
        rows=c((br1-1):br1,(br2-3):br2,br3,br4,(br5-2):br5),
        psize=shit$rewt)
+text(0, 25, "UAN", font=2)
 ### set font expansion factor (as in forest() above) and use bold italic
 ### font and save original settings in object 'op'
 #mtext("UAN")
-op <- par(cex=.75, font=4)
+par(cex=.75, font=4)
 
 ### add text for the subgroups
-text(-8, cex = 1, c(br1+1,br2+1,br3+1,br4+1,br5+1), pos=4, c("NBPT",
-                                                                       "NBPT+DCD",
-                                                                       "Thiosulfate",
-                                                                       "S.R.",
-                                                                       "Nitrapyrin"))
+text(-8, cex = 1, c(br1+1,br2+1,br3+1,br4+1,br5+1), pos=4, 
+     c("NBPT",
+       "NBPT+DCD",
+       "Thiosulfate",
+       "S.R.",
+       "Nitrapyrin"))
 
 
 
@@ -72,6 +73,7 @@ res.nitr <- rma(yi = mean.diff, vi = diff.var,
                 measure = "GEN", method="DL",
                 data=shit, 
                 subset=(Inhibitor=="nitrapyrin"))
+
 #res.pcf <- rma(yi = mean.diff, vi = diff.var, 
  #              measure = "GEN", method="DL",
   #             data=shit, 
@@ -84,10 +86,11 @@ res.nitr <- rma(yi = mean.diff, vi = diff.var,
 
 
 #addpoly(res.sr, row=br5-5-1, cex=.75, mlab="RE Model for Subgroup")
-addpoly(res.nbdc, row=br2-4, cex=.75, mlab="RE Model for Subgroup")
-addpoly(res.nitr, row=br5-3, cex=.75, mlab="RE Model for Subgroup")
-addpoly(res.nbpt, row=br1-2, cex=.75, mlab="RE Model for Subgroup")
-
+par(cex=1, font = 2)
+addpoly(res.nbdc, row=br2-4, mlab="RE Model for Subgroup")
+addpoly(res.nitr, row=br5-3, mlab="RE Model for Subgroup")
+addpoly(res.nbpt, row=br1-2, mlab="RE Model for Subgroup")
+#addpoly(UAN.shit, row=-4, mlab="RE Model for all UAN")
 
 ############
 ############
@@ -98,7 +101,7 @@ png(filename="forest_plot_with_subgroups.png",
 
 ### decrease margins so the full space is used
 par(mar=c(4,4,1,2), cex=0.75, font=1)
-?par
+
 ### load BCG vaccine data
 data(dat.bcg)
 
@@ -147,28 +150,6 @@ res.a <- rma(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, measure="RR",
 addpoly(res.s, row=18.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
 addpoly(res.r, row= 7.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
 addpoly(res.a, row= 1.5, cex=.75, atransf=exp, mlab="RE Model for Subgroup")
-
-
-
-
-
-
-
-
-
-
-### UAN lumped effects
-UAN.dat$Study <- as.character(UAN.dat$Study)
-UAN.meta <- rma(yi = UAN.dat$mean.diff, vi = UAN.dat$diff.var, 
-                measure = "GEN", method="REML",
-                slab = UAN.dat$Study)
-
-UAN.meta
-forest(UAN.meta, refline=0, xlab="Mean difference (95%CI)", mlab="Summary Effect")
-mtext("UAN")
-
-
-View(UAN.dat)
 
 
 
